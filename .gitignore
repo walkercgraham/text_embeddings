@@ -4,6 +4,7 @@
 # Checkpoints and data
 *.parquet
 data/checkpoint*.parquet
+data/contract_items_reduced.csv
 
 # Python
 __pycache__/
@@ -32,3 +33,6 @@ Thumbs.db
 
 # Logs
 *.log
+
+# Files
+REFACTORING_SUMMARY.md
