@@ -1,0 +1,211 @@
+{
+    "name": "Assign Correct Contract",
+    "flow": [
+        {
+            "id": 1,
+            "module": "gateway:CustomWebHook",
+            "version": 1,
+            "parameters": {
+                "hook": 12703,
+                "maxResults": 1
+            },
+            "mapper": {},
+            "metadata": {
+                "designer": {
+                    "x": 0,
+                    "y": 0
+                },
+                "restore": {
+                    "parameters": {
+                        "hook": {
+                            "data": {
+                                "editable": "true"
+                            },
+                            "label": "Update Contract"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "hook",
+                        "type": "hook:gateway-webhook",
+                        "label": "Webhook",
+                        "required": true
+                    },
+                    {
+                        "name": "maxResults",
+                        "type": "number",
+                        "label": "Maximum number of results"
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "value",
+                        "type": "buffer"
+                    },
+                    {
+                        "name": "pr_item_id",
+                        "type": "text"
+                    },
+                    {
+                        "name": "contract_item_id",
+                        "type": "text"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 3,
+            "module": "celonis:updateAugmentedAttributeV2",
+            "version": 3,
+            "parameters": {
+                "__IMTCONN__": 63407
+            },
+            "mapper": {
+                "value": "{{1.contract_item_id}}",
+                "executionType": "single",
+                "knowledgeModelKey": "85b1bc23_c836_4765_ade0_2e1e5104b092.ocpm-km",
+                "augmentedAttributeId": "o_celonis_PurchaseRequisitionItem_assigned_contract.o_celonis_PurchaseRequisitionItem.71b08aa6-17d2-41a0-9fc4-572f3a937280",
+                "identifierCollectionValue": {
+                    "O_CELONIS_PURCHASEREQUISITIONITEM.ID": "{{1.pr_item_id}}"
+                }
+            },
+            "metadata": {
+                "designer": {
+                    "x": 300,
+                    "y": 0
+                },
+                "restore": {
+                    "expect": {
+                        "executionType": {
+                            "label": "Single Update"
+                        },
+                        "knowledgeModelKey": {
+                            "mode": "chose",
+                            "label": "OCPM KM"
+                        },
+                        "augmentedAttributeId": {
+                            "mode": "chose",
+                            "label": "Assigned Contract"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "celonis3"
+                            },
+                            "label": "My Celonis User connection"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:celonis3,celonis4",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "knowledgeModelKey",
+                        "type": "select",
+                        "label": "Knowledge Model",
+                        "required": true
+                    },
+                    {
+                        "name": "augmentedAttributeId",
+                        "type": "select",
+                        "label": "Augmented Attribute",
+                        "required": true
+                    },
+                    {
+                        "mode": "edit",
+                        "name": "value",
+                        "type": "text",
+                        "label": "Value"
+                    },
+                    {
+                        "name": "executionType",
+                        "type": "select",
+                        "label": "Execution type",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "batch",
+                                "single"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "identifierCollectionValue",
+                        "spec": [
+                            {
+                                "name": "O_CELONIS_PURCHASEREQUISITIONITEM.ID",
+                                "type": "text",
+                                "label": "ID",
+                                "required": true
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Identifier"
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "knowledgeModelKey",
+                        "type": "text",
+                        "label": "Knowledge Model Key"
+                    },
+                    {
+                        "name": "augmentedAttributeId",
+                        "type": "text",
+                        "label": "Augmented Attribute"
+                    },
+                    {
+                        "name": "dataModelTable",
+                        "type": "text",
+                        "label": "Data Model Table"
+                    },
+                    {
+                        "name": "value",
+                        "type": "text",
+                        "label": "New Value"
+                    },
+                    {
+                        "name": "identifierCollection",
+                        "spec": [
+                            {
+                                "name": "ID",
+                                "type": "text",
+                                "label": "ID"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Identifier"
+                    }
+                ]
+            }
+        }
+    ],
+    "metadata": {
+        "instant": true,
+        "version": 1,
+        "scenario": {
+            "roundtrips": 1,
+            "maxErrors": 3,
+            "autoCommit": true,
+            "autoCommitTriggerLast": true,
+            "sequential": false,
+            "slots": null,
+            "confidential": false,
+            "dataloss": false,
+            "dlq": false
+        },
+        "designer": {
+            "orphans": []
+        },
+        "zone": "integromat.eu-1.k8s.celonis.cloud"
+    }
+}

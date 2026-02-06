@@ -1,0 +1,585 @@
+{
+    "name": "Trigger MSFT Agent",
+    "flow": [
+        {
+            "id": 1,
+            "module": "celonis:getRows",
+            "version": 3,
+            "parameters": {
+                "__IMTCONN__": 63407
+            },
+            "mapper": {
+                "limit": "1",
+                "kmFilter": [
+                    {
+                        "filterName": "PR Item",
+                        "filterType": "Custom Filter",
+                        "filterExpression": "FILTER \"O_CELONIS_PURCHASEREQUISITIONITEM\".\"ID\" = '{{var.input.pr_item_id}}'"
+                    }
+                ],
+                "kmColumns": [
+                    {
+                        "sorting": "none",
+                        "columnName": "O_CELONIS_PURCHASEREQUISITIONITEM.ID"
+                    },
+                    {
+                        "sorting": "none",
+                        "columnName": "O_CELONIS_PURCHASEREQUISITIONITEM.SHORTTEXT"
+                    }
+                ],
+                "dataOrKnowledgeModel": "KNOWLEDGE_MODEL-ocpm-km"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 0,
+                    "y": 0
+                },
+                "restore": {
+                    "expect": {
+                        "kmFilter": {
+                            "items": [
+                                {
+                                    "filterType": {
+                                        "mode": "chose",
+                                        "label": "Custom Filter"
+                                    }
+                                }
+                            ]
+                        },
+                        "kmColumns": {
+                            "items": [
+                                {
+                                    "sorting": {
+                                        "mode": "chose",
+                                        "label": "None (Default)"
+                                    },
+                                    "columnName": {
+                                        "mode": "edit"
+                                    }
+                                },
+                                {
+                                    "sorting": {
+                                        "mode": "chose",
+                                        "label": "None (Default)"
+                                    },
+                                    "columnName": {
+                                        "mode": "edit"
+                                    }
+                                }
+                            ]
+                        },
+                        "dataOrKnowledgeModel": {
+                            "mode": "chose",
+                            "label": "OCPM KM"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "celonis3"
+                            },
+                            "label": "My Celonis User connection"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:celonis3,celonis4",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "dataOrKnowledgeModel",
+                        "type": "select",
+                        "label": "Data or Knowledge Model",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "KNOWLEDGE_MODEL-ocpm-km",
+                                "c218d98d-17b0-4e8b-86a6-5802195a4e03",
+                                "5971df66-ddaa-448c-9c3c-e423907ae0a9",
+                                "b8506956-2864-4e4f-8bd9-845fef0a7727",
+                                "f761b717-a88b-4a09-ae77-0632803ef33a",
+                                "65c79f97-36d4-48e8-a245-c543678b5b65",
+                                "d2f5538a-abd9-47e4-8f4b-d4f2b48db077",
+                                "4e47c2e2-f9da-4dac-baa2-a2c8b19f220d",
+                                "3b8acaa0-9646-4480-8c93-fe21dab370f3",
+                                "97b3a28a-894a-49de-8ced-f85e87319100",
+                                "4f989946-d3c4-4ddf-93ac-388f9a85908e",
+                                "ea9b4acb-4f48-403b-8db9-e450fab5f234",
+                                "90fa898a-a8b2-4ec2-b556-2d5d26e9e7a2",
+                                "f4bd4a67-bc69-4242-ba48-d99014ec689c",
+                                "def2da4a-37c6-417f-897c-695d3e5df5fc",
+                                "9db8c283-61ca-4e85-8b47-a5f65ec2e40c",
+                                "66277005-95d4-458d-9288-77474aded623",
+                                "0f65223f-ce5c-4908-9ebd-19f03e56c79f",
+                                "4233d670-771f-4eea-b549-5b114ac6a68a",
+                                "b22bcddd-956f-47c9-9534-7349f929b7c4",
+                                "50fdb245-665d-4305-8338-1cc70237f7ff",
+                                "427d0163-e32b-4d5d-9852-ba492b96f62b",
+                                "938b3a2e-d7fd-4d6c-8443-070150a95b95",
+                                "2a82cfe4-7464-4fa5-b08a-b698f65823f1",
+                                "5f8199db-0fc4-46c6-9620-5788c752becd",
+                                "4b541c01-3edc-416c-9c33-90d53bd4a756",
+                                "39768eed-b087-4280-978e-b9a6685d59b6",
+                                "2bfb81d0-063f-437f-bbde-4f5e0aae334a",
+                                "78cc2aea-2357-44d6-a52d-7c62cd3e270f",
+                                "b1d39cb4-a52d-4f29-8b40-38d9e3a7af46",
+                                "de2f9708-fe1f-4a8c-bf79-5391313e21e9",
+                                "37ef23d6-d2b7-45b7-b49b-4432026b10ff",
+                                "5993a042-66d4-4706-92fe-5ac3b36b7136",
+                                "1e7aeab6-6152-408e-ab6e-a73f04b67bba",
+                                "cbdf9ab8-e765-408f-bda7-16f2199ddfe8",
+                                "88392ae2-104f-409b-b81a-0e5cbe8b8653",
+                                "a0c446c0-1479-40b7-865f-91651ef7b9b0",
+                                "fc0b97ee-0bdd-476e-9b3a-efbbf4d90d67",
+                                "13f34f69-0ac6-4dac-be88-b1b155a0f22b",
+                                "93c791d6-77c6-4836-a7c7-e910653583f6",
+                                "28d27fb9-9db3-4b65-9752-15c5f81258bd",
+                                "df2d7110-f150-4dab-9625-c63aad3edc42",
+                                "0a8c3d26-0aa5-4518-8e73-454802458dd9",
+                                "140ccf3f-899a-4dfc-9fa8-4244af9d1035",
+                                "3c00c3cd-363c-45d8-87ba-09f2374b579d",
+                                "6047beb9-8cd3-43eb-a8f8-d5f17ce7f05a",
+                                "ae6c050a-d282-4dcd-bc6e-2920ec3df1dd",
+                                "a16d5165-b1d3-495c-9456-ff09afa51442",
+                                "24b4ef6b-d7f2-4aba-82ca-4e6149b4c511",
+                                "595a18e7-9674-425c-8d49-3541bd3086b2",
+                                "2d4d35c8-625b-43c0-87a4-b5eacca85091",
+                                "23e0ae4f-29c7-47a8-bd5b-8e128a663cd5",
+                                "f9163024-1706-402a-ae70-f8a7f968a75f",
+                                "cac13b98-d471-455d-8ec9-566fbe07e308",
+                                "237d6f7d-172b-4b4a-9104-fd13f3980dc5",
+                                "71b08aa6-17d2-41a0-9fc4-572f3a937280",
+                                "bd9fe731-7091-4a37-a2e0-158257cfe834",
+                                "9dcae726-e363-44ac-ad88-d79105e280d9",
+                                "63221d0a-b261-4570-a8e7-4c492507b019",
+                                "28af2ce5-ab11-44b7-aae3-9d7e5144f703"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "type": "integer",
+                        "label": "Row Limit",
+                        "validate": {
+                            "max": 100000,
+                            "min": 1
+                        }
+                    },
+                    {
+                        "name": "offset",
+                        "type": "integer",
+                        "label": "Offset",
+                        "validate": {
+                            "min": 1
+                        }
+                    },
+                    {
+                        "name": "kmColumns",
+                        "spec": {
+                            "name": "value",
+                            "spec": [
+                                {
+                                    "name": "columnName",
+                                    "type": "select",
+                                    "label": "Column",
+                                    "dynamic": true,
+                                    "grouped": true,
+                                    "options": [],
+                                    "required": true
+                                },
+                                {
+                                    "name": "sorting",
+                                    "type": "select",
+                                    "label": "Column Sorting",
+                                    "options": [
+                                        {
+                                            "label": "None (Default)",
+                                            "value": "none"
+                                        },
+                                        {
+                                            "label": "Ascending",
+                                            "value": "ASC"
+                                        },
+                                        {
+                                            "label": "Descending",
+                                            "value": "DESC"
+                                        }
+                                    ],
+                                    "required": true
+                                }
+                            ],
+                            "type": "collection",
+                            "label": "Column"
+                        },
+                        "type": "array",
+                        "label": "Columns",
+                        "required": true
+                    },
+                    {
+                        "name": "kmFilter",
+                        "spec": {
+                            "name": "value",
+                            "spec": [
+                                {
+                                    "name": "filterType",
+                                    "type": "select",
+                                    "label": "Filter Type",
+                                    "options": [
+                                        {
+                                            "label": "Knowledge Model Filter",
+                                            "value": "knowledgeModelFilter",
+                                            "nested": [
+                                                {
+                                                    "name": "filter",
+                                                    "type": "select",
+                                                    "label": "Filter Name",
+                                                    "options": "rpc://celonis/3/getKnowledgeModelFilters",
+                                                    "multiple": false,
+                                                    "required": true
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "label": "Custom Filter",
+                                            "value": "Custom Filter",
+                                            "nested": [
+                                                {
+                                                    "help": "Define a name for your filter. E.g. `Order Due Tomorrow`",
+                                                    "name": "filterName",
+                                                    "type": "text",
+                                                    "label": "Filter Name",
+                                                    "required": true
+                                                },
+                                                {
+                                                    "help": "Define a filter expression using PQL. E.g. `FILTER \"VBAK\".\"VKORG\" = '1000'`",
+                                                    "name": "filterExpression",
+                                                    "type": "text",
+                                                    "label": "Filter",
+                                                    "required": true,
+                                                    "multiline": true
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "required": true
+                                }
+                            ],
+                            "type": "collection",
+                            "label": "Filter"
+                        },
+                        "type": "array",
+                        "label": "Filter"
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "__IMTLENGTH__",
+                        "type": "uinteger",
+                        "label": "Total number of bundles"
+                    },
+                    {
+                        "name": "__IMTINDEX__",
+                        "type": "uinteger",
+                        "label": "Bundle order position"
+                    },
+                    {
+                        "name": "O_CELONIS_PURCHASEREQUISITIONITEM.ID",
+                        "type": "text",
+                        "label": "Id"
+                    },
+                    {
+                        "name": "O_CELONIS_PURCHASEREQUISITIONITEM.SHORTTEXT",
+                        "type": "text",
+                        "label": "ShortText"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 3,
+            "module": "http:ActionSendData",
+            "version": 3,
+            "parameters": {
+                "handleErrors": true,
+                "useNewZLibDeCompress": true
+            },
+            "mapper": {
+                "ca": "",
+                "qs": [],
+                "url": "https://default3ff1238b47384daab9388a7336ad30.37.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/2b466581cc274f2791688bfaf9942d7c/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=_IRVHLdUzwam0TOLyoenTsy-tQpzfbI3K6m7BeJ5Zy0",
+                "data": "{\n  \"free_text\": \"{{1.`O_CELONIS_PURCHASEREQUISITIONITEM.SHORTTEXT`}}\",\n  \"pr_item_id\": \"{{1.`O_CELONIS_PURCHASEREQUISITIONITEM.ID`}}\"\n}",
+                "gzip": true,
+                "method": "post",
+                "headers": [
+                    {
+                        "name": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "timeout": "",
+                "useMtls": false,
+                "authPass": "",
+                "authUser": "",
+                "bodyType": "raw",
+                "contentType": "application/json",
+                "serializeUrl": false,
+                "shareCookies": false,
+                "parseResponse": false,
+                "followRedirect": true,
+                "useQuerystring": false,
+                "followAllRedirects": false,
+                "rejectUnauthorized": true
+            },
+            "metadata": {
+                "designer": {
+                    "x": 300,
+                    "y": 0
+                },
+                "restore": {
+                    "expect": {
+                        "qs": {
+                            "mode": "chose"
+                        },
+                        "method": {
+                            "mode": "chose",
+                            "label": "POST"
+                        },
+                        "headers": {
+                            "mode": "chose",
+                            "items": [
+                                null
+                            ]
+                        },
+                        "bodyType": {
+                            "label": "Raw"
+                        },
+                        "contentType": {
+                            "label": "JSON (application/json)"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "handleErrors",
+                        "type": "boolean",
+                        "label": "Evaluate all states as errors (except for 2xx and 3xx )",
+                        "required": true
+                    },
+                    {
+                        "name": "useNewZLibDeCompress",
+                        "type": "hidden"
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "url",
+                        "type": "url",
+                        "label": "URL",
+                        "required": true
+                    },
+                    {
+                        "name": "serializeUrl",
+                        "type": "boolean",
+                        "label": "Serialize URL",
+                        "required": true
+                    },
+                    {
+                        "name": "method",
+                        "type": "select",
+                        "label": "Method",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "get",
+                                "head",
+                                "post",
+                                "put",
+                                "patch",
+                                "delete",
+                                "options"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "headers",
+                        "spec": [
+                            {
+                                "name": "name",
+                                "type": "text",
+                                "label": "Name",
+                                "required": true
+                            },
+                            {
+                                "name": "value",
+                                "type": "text",
+                                "label": "Value"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Headers"
+                    },
+                    {
+                        "name": "qs",
+                        "spec": [
+                            {
+                                "name": "name",
+                                "type": "text",
+                                "label": "Name",
+                                "required": true
+                            },
+                            {
+                                "name": "value",
+                                "type": "text",
+                                "label": "Value"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Query String"
+                    },
+                    {
+                        "name": "bodyType",
+                        "type": "select",
+                        "label": "Body type",
+                        "validate": {
+                            "enum": [
+                                "raw",
+                                "x_www_form_urlencoded",
+                                "multipart_form_data"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "parseResponse",
+                        "type": "boolean",
+                        "label": "Parse response",
+                        "required": true
+                    },
+                    {
+                        "name": "authUser",
+                        "type": "text",
+                        "label": "User name"
+                    },
+                    {
+                        "name": "authPass",
+                        "type": "password",
+                        "label": "Password"
+                    },
+                    {
+                        "name": "timeout",
+                        "type": "uinteger",
+                        "label": "Timeout",
+                        "validate": {
+                            "max": 300,
+                            "min": 1
+                        }
+                    },
+                    {
+                        "name": "shareCookies",
+                        "type": "boolean",
+                        "label": "Share cookies with other HTTP modules",
+                        "required": true
+                    },
+                    {
+                        "name": "ca",
+                        "type": "cert",
+                        "label": "Self-signed certificate"
+                    },
+                    {
+                        "name": "rejectUnauthorized",
+                        "type": "boolean",
+                        "label": "Reject connections that are using unverified (self-signed) certificates",
+                        "required": true
+                    },
+                    {
+                        "name": "followRedirect",
+                        "type": "boolean",
+                        "label": "Follow redirect",
+                        "required": true
+                    },
+                    {
+                        "name": "useQuerystring",
+                        "type": "boolean",
+                        "label": "Disable serialization of multiple same query string keys as arrays",
+                        "required": true
+                    },
+                    {
+                        "name": "gzip",
+                        "type": "boolean",
+                        "label": "Request compressed content",
+                        "required": true
+                    },
+                    {
+                        "name": "useMtls",
+                        "type": "boolean",
+                        "label": "Use Mutual TLS",
+                        "required": true
+                    },
+                    {
+                        "name": "contentType",
+                        "type": "select",
+                        "label": "Content type",
+                        "validate": {
+                            "enum": [
+                                "text/plain",
+                                "application/json",
+                                "application/xml",
+                                "text/xml",
+                                "text/html",
+                                "custom"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "data",
+                        "type": "buffer",
+                        "label": "Request content"
+                    },
+                    {
+                        "name": "followAllRedirects",
+                        "type": "boolean",
+                        "label": "Follow all redirect",
+                        "required": true
+                    }
+                ]
+            }
+        }
+    ],
+    "metadata": {
+        "instant": false,
+        "version": 1,
+        "scenario": {
+            "roundtrips": 1,
+            "maxErrors": 3,
+            "autoCommit": true,
+            "autoCommitTriggerLast": true,
+            "sequential": false,
+            "slots": null,
+            "confidential": false,
+            "dataloss": false,
+            "dlq": false
+        },
+        "designer": {
+            "orphans": []
+        },
+        "zone": "integromat.eu-1.k8s.celonis.cloud"
+    },
+    "io": {
+        "input_spec": [
+            {
+                "name": "pr_item_id",
+                "type": "text",
+                "label": "",
+                "default": "",
+                "required": true,
+                "multiline": false
+            }
+        ],
+        "output_spec": []
+    }
+}
