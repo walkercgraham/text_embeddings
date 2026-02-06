@@ -312,7 +312,7 @@
             "mapper": {
                 "ca": "",
                 "qs": [],
-                "url": "https://default3ff1238b47384daab9388a7336ad30.37.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/2b466581cc274f2791688bfaf9942d7c/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=_IRVHLdUzwam0TOLyoenTsy-tQpzfbI3K6m7BeJ5Zy0",
+                "url": "",
                 "data": "{\n  \"free_text\": \"{{1.`O_CELONIS_PURCHASEREQUISITIONITEM.SHORTTEXT`}}\",\n  \"pr_item_id\": \"{{1.`O_CELONIS_PURCHASEREQUISITIONITEM.ID`}}\"\n}",
                 "gzip": true,
                 "method": "post",
