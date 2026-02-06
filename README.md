@@ -361,11 +361,11 @@ process_rows(df, max_rows=10)
 This is a template project. Feel free to:
 - Customize for your use case
 - Add features you need
-- Share improvements with your team
+- Share improvements 
 
 ## 📝 License
 
-This template is provided as-is for internal use. Customize as needed for your organization.
+This template is provided as-is for internal use. Customize as needed for your use case.
 
 ---
 
