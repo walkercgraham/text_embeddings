@@ -1,0 +1,16 @@
+# Core dependencies
+python-dotenv>=1.0.0
+pandas>=2.0.0
+requests>=2.31.0
+pyarrow>=14.0.0
+
+# Jupyter support (optional, for notebooks)
+jupyter>=1.0.0
+ipykernel>=6.25.0
+
+# Celonis integration (optional - only needed if using Celonis as data source)
+# pip install --extra-index-url=https://pypi.celonis.cloud/ pycelonis
+pycelonis>=2.14.0
+
+# Note: Disable SSL warnings if using IP-based endpoints
+# You may want to add: urllib3>=2.0.0
